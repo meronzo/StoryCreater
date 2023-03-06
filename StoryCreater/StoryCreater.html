@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>StoryCreater</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="StoryCreater.css">
+
+	<!--    Google Font     -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Zen+Kaku+Gothic+Antique&display=swap"
+		rel="stylesheet">
+
+
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+
+</head>
+
+<body>
+	<div class="Content">
+		<aside class="UserInteract">
+			<a href="../index.html" class="UserInteractBackButton"><i
+					class="fa-solid fa-chevron-left"></i>戻る</a>
+			<div class="UserInput">
+				<input class="UserInputFileName" placeholder="Story"><span class="FileExtension">.png</span>
+				<button class="UserInputDownload" type="button" id="DownloadBtn"><i
+						class="fa-solid fa-download"></i>ダウンロード</button>
+			</div>
+		</aside>
+		<aside class="TextSettingArea">
+			<div class="SettingCategory">
+				<input type="number" class="NumberForm" onchange="ChangeFontSize(this.value)"><span
+					class="TextSizePx">px</span>
+				<input type="color" class="ColorForm" id="ColorForm" oninput="ChangeTextColor(this.value)">
+				<label for="ColorForm" class="ColorFont TextEffect"><i class="fa-solid fa-font"></i></label>
+				<input type="checkbox" id="Bold" onclick="ChangeTextEffects('Bold')">
+				<label for="Bold" class="TextEffect"><i class="fa-solid fa-bold"></i></label>
+				<input type="checkbox" id="Italic" onclick="ChangeTextEffects('Italic')">
+				<label for="Italic" class="TextEffect"><i class="fa-solid fa-italic"></i></label>
+				<input type="checkbox" id="StrikeThrough" onclick="ChangeTextEffects('StrikeThrough')">
+				<label for="StrikeThrough" class="TextEffect"><i class="fa-solid fa-strikethrough"></i></label>
+				<input type="checkbox" id="UnderLine" onclick="ChangeTextEffects('UnderLine')">
+				<label for="UnderLine" class="TextEffect"><i class="fa-solid fa-underline"></i></label>
+
+			</div>
+		</aside>
+
+		</aside>
+		<aside class="Toolbar">
+			<button class="ToolbarElements" id="AddPicBtn">
+				<span class="ToolbarElements_Icon"><i class="fa-regular fa-image"></i></span>
+				<span class="ToolbarElements_Text">画像を追加</span>
+			</button>
+			<button class="ToolbarElements">
+				<span class="ToolbarElements_Icon"><i class="fa-solid fa-filter"></i></span>
+				<span class="ToolbarElements_Text">フィルター</span>
+			</button>
+			<button class="ToolbarElements">
+				<span class="ToolbarElements_Icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+				<span class="ToolbarElements_Text">検索</span>
+			</button>
+			<button class="ToolbarElements" id="AddTextBtn">
+				<span class="ToolbarElements_Icon"><i class="fa-solid fa-font"></i></span>
+				<span class="ToolbarElements_Text">テキスト</span>
+			</button>
+			<button class="ToolbarElements">
+				<span class="ToolbarElements_Icon"><i class="fa-solid fa-clock-rotate-left"></i></span>
+				<span class="ToolbarElements_Text">履歴</span>
+			</button>
+		</aside>
+		<!--
+			<div class="TextSettingArea">
+				<div class="TextSettingScreen">
+					<h2 class="TextSettingTitle">文字の設定</h2>
+					<div class="TextCategory">
+						<div class="TextSetting">
+							<span class="TextSizeExp">文字の大きさ: </span><input type="number" class="NumberForm" onchange="ChangeFontSize(this.value)"><span class="TextSizePx">px</span>
+						</div>
+						<div class="TextSetting">
+							<input type="checkbox" id="Bold" onclick="ChangeTextEffects('Bold')">
+							<label for="Bold" class="TextEffect"><i class="fa-solid fa-bold"></i></label>
+							<input type="checkbox" id="Italic" onclick="ChangeTextEffects('Italic')">
+							<label for="Italic" class="TextEffect"><i class="fa-solid fa-italic"></i></label>
+							<input type="checkbox" id="StrikeThrough" onclick="ChangeTextEffects('StrikeThrough')">
+							<label for="StrikeThrough" class="TextEffect"><i class="fa-solid fa-strikethrough"></i></label>
+							<input type="checkbox" id="UnderLine" onclick="ChangeTextEffects('UnderLine')">
+							<label for="UnderLine" class="TextEffect"><i class="fa-solid fa-underline"></i></label>
+						</div>
+					</div>
+					<div class="TextCategory">
+						<div class="TextSetting">
+							<span class="TextSizeExp">文字色: </span><input type="color" class="ColorForm" id="ColorForm" oninput="ChangeTextColor(this.value)">
+						</div>
+					</div>
+				</div>
+			
+				<div class="OpenCloseBtn" onclick="ChangeTextSettingScreenState()"><span class="Arrow LeftArrow"></span></div>
+			</div>
+			-->
+
+		<main class="EditScreen">
+			<div class="StorySpace">
+			</div>
+		</main>
+		<!--
+		
+			<button class="download_button" type="button">
+				<span class="download_button_icon"><i class="fa-solid fa-download fa-fw"></i></span>
+				<span class="download_button_text">Download</span>
+			</button>
+	-->
+	</div>
+	<input type="file" class="UploadPic" accept='image/*' onchange="AddPic(this)">
+	<div class="AppendSpace">
+	</div>
+
+	<script src="StoryCreater.js" defer></script>
+	<!-- Moveable MIT -->
+	<script src="//daybrush.com/moveable/release/latest/dist/moveable.min.js"></script>
+	<!-- Font Awesome -->
+	<script src="https://kit.fontawesome.com/db1e596adb.js" crossorigin="anonymous"></script>
+	<!-- HTML2Canvas -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+</body>
+
+</html>

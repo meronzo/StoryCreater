@@ -1,0 +1,141 @@
+:root{
+    --CaptureTextColor: aliceblue;
+    --AboutBlockBgColor: rgb(255, 255, 255);
+    --AboutBlockTxtColor: rgb(110, 72, 54);
+    --PhilosophyBlockBgColor: rgb(221, 235, 220);
+    --PhilosophyBlockTxtColor: rgb(30, 53, 35);
+}
+.Capture{
+    position: relative;
+    font-family: 'Kiwi Maru', serif;
+    background: linear-gradient(rgb(78, 141, 141), rgb(56, 97, 97), rgb(24, 53, 53));
+    height: 520px;
+}
+.CaptureLegend{
+    width: fit-content;
+    display: block;
+    padding-left: 60px;
+    padding-top: 82px;
+    color: var(--CaptureTextColor);
+}
+.CaptureLegendHeader{
+    font-size: 52px;
+}
+.marker{
+    position: relative;
+}
+.marker::before{
+    content: "";
+    background-color: rgba(255, 255, 0, 0.267);
+    margin-top: 4px;
+    display: inline-block;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    height: 24%;
+    width: 100%;
+}
+.CaptureLegendSub{
+    font-size: 26px;
+    padding: 10px 0 0 0;
+}
+.CaptureImage{
+    height: 440px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.CaptureLink{
+    margin: 200px 0 0 60px;
+    display: inline-block;
+    padding: 20px 52px;
+    border-radius: 40px;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: var(--CaptureTextColor);
+    color: rgb(66, 66, 66);
+}
+@keyframes Jump{
+    from{
+        padding: 20px 52px;
+    }
+    to{
+        padding: 2px 52px 38px;
+    }
+}
+.CaptureLink:hover{
+    animation: Jump 0.2s  alternate 2;
+}
+
+.About{
+    background-color: var(--AboutBlockBgColor);
+    color: var(--AboutBlockTxtColor);
+}
+.About img{
+    float: right;
+}
+.About *::after{
+    background-color: var(--AboutBlockTxtColor);
+}
+
+.How{
+    background-color: var(--PhilosophyBlockBgColor) !important;
+    color: var(--PhilosophyBlockTxtColor) !important;
+}
+.How *::after{
+    background-color: var(--PhilosophyBlockTxtColor);
+}
+.How img{
+    float: left;
+    padding-left: 0 !important;
+}
+
+.IntroductionBlock{
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    padding: 120px 62px;
+    width: 100%;
+}
+.IntroductionHeader{
+    user-select: none;
+    font-size: 72px;
+    font-weight:lighter;
+    padding-bottom: 8px;
+    border-bottom: 2px black solid;
+}
+@keyframes FadeInAndOut{
+	0% {opacity: 0;}
+	1% {opacity: 1;}
+	49%{opacity: 1;}
+	50%{opacity: 0;}
+	100%{opacity: 0;}
+}
+.IntroductionHeader::after{
+    content: "";
+    display: inline-block;
+    margin-left: 4px;
+    height: 70px;
+    width: 2px;
+    vertical-align:sub;
+    animation: FadeInAndOut 1s forwards infinite;
+}
+.IntroductionInnerText{
+    padding: 30px 20px;
+    color: inherit;
+}
+.IntroductionInnerText img{
+    width: 380px;
+    height: 280px;
+    box-sizing: content-box;
+    padding: 54px;
+    object-fit: cover;
+}
+.IntroductionInnerText h3{
+    font-weight: 400;
+    font-size: 42px;
+    padding-bottom: 42px;
+}
+.IntroductionInnerText p{
+    font-size: 15.8px;
+    line-height: 1.8;
+}
