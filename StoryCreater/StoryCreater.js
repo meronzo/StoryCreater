@@ -428,47 +428,19 @@ function FetchFileName() {
 const DownloadBtn = document.querySelector("#DownloadBtn");
 
 DownloadBtn.addEventListener("click", () => {
-    let FileName = FetchFileName();
-    moveable.target = "";
 
-
-    let gif = new GIF({
-        workers: 2,
-        quality: 10,
-        workerScript: './gif.worker.js',
-        height: 880,
-        width: 540,
-    });
-
-
-    let count = 0;
     EditScreen.classList.toggle("onSave");
-    let timer = setInterval(() => {
-        html2canvas(StorySpace, {
-            windowHeight: StorySpace.scrollHeight,
-        }).then(canvas => {
-            let NewImage = new Image();
-            NewImage.src = canvas.toDataURL("image/png");
-            NewImage.onload = () => {
-                count++
-                gif.addFrame(canvas, { copy: true, delay: 10 });
+    
+    html2canvas(StorySpace, {
+        windowHeight: StorySpace.scrollHeight,
+    }).then(canvas => {
+        
+        let downloadEle = document.createElement("a");
+        downloadEle.href = canvas.toDataURL("image/png");
+        downloadEle.download = "canvas.png";
+        downloadEle.click();
 
-                if (count >= 10) {
-                    clearInterval(timer);
-                    gif.render();
-                    gif.on('finished', blob => {
-                        const gifImg = URL.createObjectURL(blob);
-                        let downloadEle = document.createElement("a");
-                        downloadEle.setAttribute('download', 'img');
-                        downloadEle.setAttribute('href', gifImg);
-                        downloadEle.click();
-                    })
-                }
-
-            }
-
-        }, 10);
-    });
+    })
     EditScreen.classList.toggle("onSave");
 
 })
